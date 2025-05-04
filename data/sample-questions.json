@@ -1,0 +1,152 @@
+[
+  {
+    "id": "q001",
+    "lang": "jp",
+    "domain": "cloud_concepts",
+    "stem": "AWSクラウドの主な利点はどれですか？",
+    "choices": {
+      "A": "固定費用に変換された変動費用",
+      "B": "変動費用に変換された固定費用",
+      "C": "定額料金体系",
+      "D": "前払いの資本的支出"
+    },
+    "answer": "B",
+    "explanation": "AWSクラウドの主な利点の一つは、固定費用を変動費用に変換できる点です。データセンターやサーバーなどのインフラストラクチャに多額の初期投資をする代わりに、必要なときに必要な分だけ使用して料金を支払います。",
+    "updatedAt": 1684123456789
+  },
+  {
+    "id": "q002",
+    "lang": "jp",
+    "domain": "security",
+    "stem": "AWSでのセキュリティに関する責任共有モデルにおいて、AWSの責任はどれですか？",
+    "choices": {
+      "A": "顧客データの暗号化",
+      "B": "オペレーティングシステムのパッチ適用",
+      "C": "クラウドのセキュリティ",
+      "D": "ネットワーク設定"
+    },
+    "answer": "C",
+    "explanation": "AWSの責任共有モデルでは、AWSはクラウド自体のセキュリティを担当し、顧客はクラウド内のセキュリティを担当します。AWSは物理的なインフラストラクチャとファウンデーションサービスを保護する責任があります。",
+    "updatedAt": 1684123456790
+  },
+  {
+    "id": "q003",
+    "lang": "jp",
+    "domain": "technology",
+    "stem": "EC2インスタンスのコンピューティング能力を変更する必要がある場合、どのアクションを実行すべきですか？",
+    "choices": {
+      "A": "インスタンスタイプを変更する",
+      "B": "新しいVPCを作成する",
+      "C": "AZを変更する",
+      "D": "別のリージョンに移動する"
+    },
+    "answer": "A",
+    "explanation": "EC2インスタンスのコンピューティング能力を変更するには、インスタンスタイプを変更します。これにより、CPU、メモリ、ストレージ、ネットワーキング能力などのリソースを調整できます。",
+    "updatedAt": 1684123456791
+  },
+  {
+    "id": "q004",
+    "lang": "jp",
+    "domain": "billing",
+    "stem": "AWSのコスト管理に役立つサービスはどれですか？",
+    "choices": {
+      "A": "Amazon Inspector",
+      "B": "AWS Cost Explorer",
+      "C": "AWS CloudTrail",
+      "D": "Amazon CloudFront"
+    },
+    "answer": "B",
+    "explanation": "AWS Cost Explorerは、コストと使用状況を視覚化、理解、管理するためのツールです。対話的なダッシュボードを使用して、時間の経過に伴うコストと使用状況のデータを分析できます。",
+    "updatedAt": 1684123456792
+  },
+  {
+    "id": "q005",
+    "lang": "jp",
+    "domain": "cloud_concepts",
+    "stem": "AWSのグローバルインフラストラクチャの構成要素ではないものはどれですか？",
+    "choices": {
+      "A": "リージョン",
+      "B": "アベイラビリティーゾーン",
+      "C": "エッジロケーション",
+      "D": "サブネット"
+    },
+    "answer": "D",
+    "explanation": "サブネットはAWSのグローバルインフラストラクチャの構成要素ではなく、VPC内のネットワークセグメントです。AWSのグローバルインフラストラクチャは、リージョン、アベイラビリティーゾーン、エッジロケーションで構成されています。",
+    "updatedAt": 1684123456793
+  },
+  {
+    "id": "q006",
+    "lang": "en",
+    "domain": "cloud_concepts",
+    "stem": "What is a main benefit of AWS Cloud?",
+    "choices": {
+      "A": "Fixed expenses converted to variable expenses",
+      "B": "Variable expenses converted to fixed expenses",
+      "C": "Flat rate pricing model",
+      "D": "Upfront capital expenditure"
+    },
+    "answer": "A",
+    "explanation": "One of the main benefits of AWS Cloud is the ability to convert fixed expenses into variable expenses. Instead of investing heavily in data centers and servers, you pay only for what you consume when you need it.",
+    "updatedAt": 1684123456794
+  },
+  {
+    "id": "q007",
+    "lang": "en",
+    "domain": "security",
+    "stem": "In the AWS shared responsibility model, what is AWS responsible for?",
+    "choices": {
+      "A": "Encrypting customer data",
+      "B": "Patching operating systems",
+      "C": "Security of the cloud",
+      "D": "Network configuration"
+    },
+    "answer": "C",
+    "explanation": "In the AWS shared responsibility model, AWS is responsible for 'security of the cloud', while customers are responsible for 'security in the cloud'. AWS is responsible for protecting the physical infrastructure and foundation services.",
+    "updatedAt": 1684123456795
+  },
+  {
+    "id": "q008",
+    "lang": "en",
+    "domain": "technology",
+    "stem": "If you need to change the computing capacity of an EC2 instance, what action should you take?",
+    "choices": {
+      "A": "Change the instance type",
+      "B": "Create a new VPC",
+      "C": "Change the AZ",
+      "D": "Move to a different Region"
+    },
+    "answer": "A",
+    "explanation": "To change the computing capacity of an EC2 instance, you should change the instance type. This allows you to adjust resources such as CPU, memory, storage, and networking capabilities.",
+    "updatedAt": 1684123456796
+  },
+  {
+    "id": "q009",
+    "lang": "en",
+    "domain": "billing",
+    "stem": "Which service helps with AWS cost management?",
+    "choices": {
+      "A": "Amazon Inspector",
+      "B": "AWS Cost Explorer",
+      "C": "AWS CloudTrail",
+      "D": "Amazon CloudFront"
+    },
+    "answer": "B",
+    "explanation": "AWS Cost Explorer is a tool that helps you visualize, understand, and manage your AWS costs and usage. It provides an interactive dashboard to analyze your cost and usage data over time.",
+    "updatedAt": 1684123456797
+  },
+  {
+    "id": "q010",
+    "lang": "en",
+    "domain": "cloud_concepts",
+    "stem": "Which is NOT a component of the AWS global infrastructure?",
+    "choices": {
+      "A": "Regions",
+      "B": "Availability Zones",
+      "C": "Edge Locations",
+      "D": "Subnets"
+    },
+    "answer": "D",
+    "explanation": "Subnets are not components of AWS global infrastructure; they are network segments within a VPC. The AWS global infrastructure consists of Regions, Availability Zones, and Edge Locations.",
+    "updatedAt": 1684123456798
+  }
+] 
