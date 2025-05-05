@@ -38,5 +38,19 @@
       "billing": 5
     },
     "duration": 24
+  },
+  {
+    "timestamp": "2025-05-05T10:01:48.569Z",
+    "mode": "exam",
+    "score": 32,
+    "correct": 21,
+    "total": 65,
+    "domainStats": {
+      "cloud_concepts": 1,
+      "security": 6,
+      "technology": 9,
+      "billing": 5
+    },
+    "duration": 19
   }
 ]

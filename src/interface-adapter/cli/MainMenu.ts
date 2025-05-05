@@ -5,6 +5,11 @@ import { Domain } from '../../domain/Question.js';
 import { ExamMode } from '../../domain/ExamSession.js';
 import { StartExam } from '../../usecase/StartExam.js';
 import { RunExam } from '../../usecase/RunExam.js';
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 /**
  * アプリケーションのメインメニュー
@@ -29,10 +34,11 @@ export class MainMenu {
         name: 'value',
         message: 'メニューを選択してください',
         choices: [
-          { title: '本番形式の模擬試験（65問）', value: 'full-exam' },
+          { title: '本試験モード', value: 'exam' },
           { title: '練習問題（ドメイン選択可能）', value: 'practice' },
-          { title: '問題データを更新', value: 'update' },
-          { title: '試験結果の統計', value: 'stats' },
+          { title: '問題データの更新', value: 'update' },
+          { title: '統計情報の表示', value: 'stats' },
+          { title: '裏モード（ポケモンクイズ）', value: 'pokemon' },
           { title: '終了', value: 'exit' }
         ]
       });
@@ -53,7 +59,7 @@ export class MainMenu {
   private async handleAction(action: string): Promise<void> {
     try {
       switch (action) {
-        case 'full-exam':
+        case 'exam':
           await this.startFullExam();
           break;
         case 'practice':
@@ -64,6 +70,9 @@ export class MainMenu {
           break;
         case 'stats':
           await this.showStats();
+          break;
+        case 'pokemon':
+          await this.startPokemonQuiz();
           break;
       }
     } catch (error) {
@@ -228,5 +237,45 @@ export class MainMenu {
          AWS認定クラウドプラクティショナー 模擬試験 CLI
       ===================================================
     `));
+  }
+
+  // ポケモンクイズ用のメソッド
+  async startPokemonQuiz() {
+    const filePath = path.resolve(__dirname, '../../../data/pokemon-questions.json');
+    const raw = fs.readFileSync(filePath, 'utf-8');
+    const questions = JSON.parse(raw);
+    const shuffled = questions.sort(() => Math.random() - 0.5).slice(0, 10);
+    console.log('\n【裏モード：ポケモンクイズ】\n');
+    let correct = 0;
+    for (let i = 0; i < shuffled.length; i++) {
+      const q = shuffled[i];
+      console.log(chalk.yellow(`Q${i + 1}: ${q.stem}`));
+      const answer = await prompts({
+        type: 'select',
+        name: 'value',
+        message: '答えを選んでください',
+        choices: Object.entries(q.choices).map(([key, value]) => ({ title: `${key}: ${value}`, value: key }))
+      });
+      if (!answer.value) {
+        console.log(chalk.gray('スキップされました。'));
+        continue;
+      }
+      if (answer.value === q.answer) {
+        console.log(chalk.green('正解！'));
+        correct++;
+      } else {
+        console.log(chalk.red('不正解！'));
+        console.log(chalk.green(`正解: ${q.answer}: ${q.choices[q.answer]}`));
+      }
+      console.log(chalk.cyan(`解説: ${q.explanation}`));
+      console.log('---');
+    }
+    console.log(chalk.magenta(`\n【結果】${correct} / 10問正解 (${Math.round((correct/10)*100)}%)`));
+    await prompts({
+      type: 'confirm',
+      name: 'continue',
+      message: 'メニューに戻るには Enter キーを押してください',
+      initial: true
+    });
   }
 } 
