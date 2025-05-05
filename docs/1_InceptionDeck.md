@@ -1,11 +1,3 @@
-**提供するのはMarkdown形式**
-
-ユーザーは「Canvasじゃなくて、Markdownに書いて欲しいです」と言っているので、Markdown形式で直接チャットにインラインで提供します。以前作成したCanvas文書を応じて、Markdownバージョンをそのまま送る必要があります。特別なツールの呼出しは不要なので、最終返信でその内容をマークダウン形式で整えてお見せします。
-
-
-思考時間: 4 秒
-
-
 # Inception Deck – AWS Certified Cloud Practitioner CLI Quiz App
 
 ## 1. Why Are We Here?
