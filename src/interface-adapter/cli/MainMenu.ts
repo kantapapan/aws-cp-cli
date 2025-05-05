@@ -158,18 +158,7 @@ export class MainMenu {
    * @returns 選択された言語コード、またはキャンセル時はnull
    */
   private async selectLanguage(): Promise<string | null> {
-    const response = await prompts({
-      type: 'select',
-      name: 'value',
-      message: '言語を選択してください',
-      choices: [
-        { title: '日本語', value: 'jp' },
-        { title: '英語', value: 'en' },
-        { title: '戻る', value: 'back' }
-      ]
-    });
-
-    return response.value === 'back' ? null : response.value;
+    return 'jp';
   }
 
   /**

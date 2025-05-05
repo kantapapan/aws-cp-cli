@@ -82,6 +82,31 @@ export class CliExamPresenter implements ExamPresenter {
       console.log(`${domainName}: ${correct}問正解`);
     });
     
+    // 不正解の問題の詳細を表示
+    const incorrectQuestions = dto.questions.filter(question => {
+      const userAnswer = dto.userAnswers[question.id];
+      return userAnswer !== question.answer;
+    });
+
+    if (incorrectQuestions.length > 0) {
+      console.log(chalk.yellow('\n不正解の問題:'));
+      incorrectQuestions.forEach((question, index) => {
+        const userAnswer = dto.userAnswers[question.id];
+        console.log(chalk.yellow(`\n${index + 1}. ${question.stem}`));
+        console.log('選択肢:');
+        Object.entries(question.choices).forEach(([key, value]) => {
+          if (key === question.answer) {
+            console.log(chalk.green(`  ${key}: ${value} (正解)`));
+          } else if (key === userAnswer) {
+            console.log(chalk.red(`  ${key}: ${value} (あなたの回答)`));
+          } else {
+            console.log(`  ${key}: ${value}`);
+          }
+        });
+        console.log(chalk.cyan(`\n解説: ${question.explanation}`));
+      });
+    }
+    
     console.log('\n');
     
     // ユーザーに続行を促す

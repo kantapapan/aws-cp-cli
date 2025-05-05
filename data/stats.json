@@ -1,0 +1,28 @@
+[
+  {
+    "timestamp": "2025-05-05T08:50:10.635Z",
+    "mode": "practice",
+    "score": 80,
+    "correct": 4,
+    "total": 5,
+    "domainStats": {
+      "cloud_concepts": 2,
+      "security": 1,
+      "technology": 1
+    },
+    "duration": 92
+  },
+  {
+    "timestamp": "2025-05-05T09:01:08.487Z",
+    "mode": "practice",
+    "score": 0,
+    "correct": 0,
+    "total": 5,
+    "domainStats": {
+      "cloud_concepts": 0,
+      "security": 0,
+      "billing": 0
+    },
+    "duration": 11
+  }
+]

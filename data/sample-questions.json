@@ -76,77 +76,77 @@
   },
   {
     "id": "q006",
-    "lang": "en",
-    "domain": "cloud_concepts",
-    "stem": "What is a main benefit of AWS Cloud?",
+    "lang": "jp",
+    "domain": "security",
+    "stem": "AWSのセキュリティサービスで、ネットワークトラフィックの監視と保護を行うサービスはどれですか？",
     "choices": {
-      "A": "Fixed expenses converted to variable expenses",
-      "B": "Variable expenses converted to fixed expenses",
-      "C": "Flat rate pricing model",
-      "D": "Upfront capital expenditure"
+      "A": "AWS WAF",
+      "B": "Amazon GuardDuty",
+      "C": "AWS Shield",
+      "D": "Amazon Inspector"
     },
     "answer": "A",
-    "explanation": "One of the main benefits of AWS Cloud is the ability to convert fixed expenses into variable expenses. Instead of investing heavily in data centers and servers, you pay only for what you consume when you need it.",
+    "explanation": "AWS WAFは、Webアプリケーションのセキュリティを保護するサービスで、Webトラフィックを監視し、悪意のあるリクエストをブロックします。",
     "updatedAt": 1684123456794
   },
   {
     "id": "q007",
-    "lang": "en",
-    "domain": "security",
-    "stem": "In the AWS shared responsibility model, what is AWS responsible for?",
+    "lang": "jp",
+    "domain": "technology",
+    "stem": "サーバーレスアーキテクチャの利点はどれですか？",
     "choices": {
-      "A": "Encrypting customer data",
-      "B": "Patching operating systems",
-      "C": "Security of the cloud",
-      "D": "Network configuration"
+      "A": "サーバーの完全な制御",
+      "B": "インフラストラクチャの管理の削減",
+      "C": "固定のコンピューティングリソース",
+      "D": "長期的なコミットメント"
     },
-    "answer": "C",
-    "explanation": "In the AWS shared responsibility model, AWS is responsible for 'security of the cloud', while customers are responsible for 'security in the cloud'. AWS is responsible for protecting the physical infrastructure and foundation services.",
+    "answer": "B",
+    "explanation": "サーバーレスアーキテクチャの主な利点は、インフラストラクチャの管理が不要になり、開発者はコードの作成に集中できることです。",
     "updatedAt": 1684123456795
   },
   {
     "id": "q008",
-    "lang": "en",
-    "domain": "technology",
-    "stem": "If you need to change the computing capacity of an EC2 instance, what action should you take?",
+    "lang": "jp",
+    "domain": "billing",
+    "stem": "AWSの予約インスタンスの利点はどれですか？",
     "choices": {
-      "A": "Change the instance type",
-      "B": "Create a new VPC",
-      "C": "Change the AZ",
-      "D": "Move to a different Region"
+      "A": "柔軟なインスタンスタイプの変更",
+      "B": "オンデマンドインスタンスより高い料金",
+      "C": "長期的な使用に対する割引",
+      "D": "短期間の使用に最適"
     },
-    "answer": "A",
-    "explanation": "To change the computing capacity of an EC2 instance, you should change the instance type. This allows you to adjust resources such as CPU, memory, storage, and networking capabilities.",
+    "answer": "C",
+    "explanation": "予約インスタンスは、1年または3年の期間をコミットすることで、オンデマンドインスタンスと比較して最大75%の割引を受けることができます。",
     "updatedAt": 1684123456796
   },
   {
     "id": "q009",
-    "lang": "en",
-    "domain": "billing",
-    "stem": "Which service helps with AWS cost management?",
+    "lang": "jp",
+    "domain": "cloud_concepts",
+    "stem": "AWSの可用性を高めるためのベストプラクティスはどれですか？",
     "choices": {
-      "A": "Amazon Inspector",
-      "B": "AWS Cost Explorer",
-      "C": "AWS CloudTrail",
-      "D": "Amazon CloudFront"
+      "A": "単一のアベイラビリティーゾーンのみを使用",
+      "B": "複数のアベイラビリティーゾーンにリソースを分散",
+      "C": "単一のリージョンのみを使用",
+      "D": "オンプレミスとクラウドのハイブリッド構成"
     },
     "answer": "B",
-    "explanation": "AWS Cost Explorer is a tool that helps you visualize, understand, and manage your AWS costs and usage. It provides an interactive dashboard to analyze your cost and usage data over time.",
+    "explanation": "複数のアベイラビリティーゾーンにリソースを分散することで、単一の障害が全体のサービスに影響を与えるリスクを軽減できます。",
     "updatedAt": 1684123456797
   },
   {
     "id": "q010",
-    "lang": "en",
-    "domain": "cloud_concepts",
-    "stem": "Which is NOT a component of the AWS global infrastructure?",
+    "lang": "jp",
+    "domain": "security",
+    "stem": "AWSのIAMポリシーで、明示的に許可されていないアクションはどうなりますか？",
     "choices": {
-      "A": "Regions",
-      "B": "Availability Zones",
-      "C": "Edge Locations",
-      "D": "Subnets"
+      "A": "デフォルトで許可される",
+      "B": "明示的に拒否される",
+      "C": "暗黙的に拒否される",
+      "D": "管理者の承認が必要"
     },
-    "answer": "D",
-    "explanation": "Subnets are not components of AWS global infrastructure; they are network segments within a VPC. The AWS global infrastructure consists of Regions, Availability Zones, and Edge Locations.",
+    "answer": "C",
+    "explanation": "IAMでは、明示的に許可されていないアクションは暗黙的に拒否されます。これは「最小権限の原則」に基づいています。",
     "updatedAt": 1684123456798
   }
 ] 

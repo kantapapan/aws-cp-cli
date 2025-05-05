@@ -55,14 +55,10 @@ export class JsonQuestionRepository implements QuestionRepository {
     await this.initialize();
     
     // 条件に合う問題をフィルタリング
-    let filteredQuestions = this.questions;
+    let filteredQuestions = this.questions.filter(q => q.lang === 'jp');
     
     if (params.domain) {
       filteredQuestions = filteredQuestions.filter(q => q.domain === params.domain);
-    }
-    
-    if (params.lang) {
-      filteredQuestions = filteredQuestions.filter(q => q.lang === params.lang);
     }
     
     // 十分な問題がない場合はそのまま返す
@@ -79,14 +75,9 @@ export class JsonQuestionRepository implements QuestionRepository {
    * @param lang 問題の言語（省略可）
    * @returns すべての問題の配列
    */
-  async findAll(lang?: string): Promise<Question[]> {
+  async findAll(_lang?: string): Promise<Question[]> {
     await this.initialize();
-    
-    if (lang) {
-      return this.questions.filter(q => q.lang === lang);
-    }
-    
-    return this.questions;
+    return this.questions.filter(q => q.lang === 'jp');
   }
 
   /**
