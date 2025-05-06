@@ -30,4 +30,19 @@ export interface QuestionRepository {
    * @returns 成功した場合はtrue
    */
   update(url?: string): Promise<boolean>;
+
+  /**
+   * 重複をチェックして排除した問題セットを取得する
+   * @param params.domain 取得する問題のドメイン（省略可）
+   * @param params.count 取得する問題数
+   * @param params.lang 問題の言語（jp/en）
+   * @param params.similarityThreshold 類似度の閾値（デフォルト：0.8）
+   * @returns 重複のない問題の配列
+   */
+  findRandomWithoutDuplication(params: {
+    domain?: Domain;
+    count: number;
+    lang?: string;
+    similarityThreshold?: number;
+  }): Promise<Question[]>;
 } 

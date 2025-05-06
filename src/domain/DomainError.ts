@@ -47,4 +47,18 @@ export class InvalidSessionStateError extends DomainError {
     super(`Invalid session state: ${message}`);
     this.name = 'InvalidSessionStateError';
   }
+}
+
+/**
+ * 重複問題が検出された場合のエラー
+ */
+export class DuplicateQuestionsError extends Error {
+  public readonly duplicateQuestions: { id: string, stem: string, similarityScore: number }[];
+
+  constructor(duplicates: { id: string, stem: string, similarityScore: number }[]) {
+    const count = duplicates.length;
+    super(`${count}件の重複問題が検出されました。問題IDリスト: ${duplicates.map(d => d.id).join(', ')}`);
+    this.name = 'DuplicateQuestionsError';
+    this.duplicateQuestions = duplicates;
+  }
 } 
