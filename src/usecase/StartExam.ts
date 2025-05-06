@@ -13,6 +13,14 @@ export interface StartExamInput {
   domain?: Domain;
   count?: number;
   lang?: string;
+  /**
+   * 重複排除を行うかどうか（デフォルト：true）
+   */
+  preventDuplication?: boolean;
+  /**
+   * 類似度の閾値（デフォルト：0.8）
+   */
+  similarityThreshold?: number;
 }
 
 /**
@@ -35,8 +43,8 @@ export class StartExam {
       // モードに基づいて問題数を決定
       const count = this.determineQuestionCount(input);
       
-      // 問題を取得
-      const questions = await this.fetchQuestions(input.domain, count, input.lang);
+      // 問題を取得（重複排除ありまたはなし）
+      const questions = await this.fetchQuestions(input, count);
       
       // 問題数が足りない場合はエラー
       if (questions.length < count) {
@@ -71,25 +79,37 @@ export class StartExam {
       return input.count;
     }
     
-    return input.mode === ExamMode.FULL_EXAM ? 65 : 10;
+    // 一時的に本試験モードの問題数を20問に設定（本来は65問）
+    // TODO: 十分な問題データが追加されたら65に戻す
+    return input.mode === ExamMode.FULL_EXAM ? 20 : 10;
   }
 
   /**
    * 指定されたドメインから問題を取得する
-   * @param domain 問題ドメイン（省略可）
+   * @param input 試験設定
    * @param count 問題数
-   * @param lang 言語（省略可）
    * @returns 問題の配列
    */
   private async fetchQuestions(
-    domain?: Domain,
-    count: number = 65,
-    lang?: string
+    input: StartExamInput,
+    count: number
   ): Promise<Question[]> {
-    return this.questionRepo.findRandom({
-      domain,
-      count,
-      lang
-    });
+    // デフォルトでは重複排除を有効にする
+    const preventDuplication = input.preventDuplication ?? true;
+
+    if (preventDuplication) {
+      return this.questionRepo.findRandomWithoutDuplication({
+        domain: input.domain,
+        count,
+        lang: input.lang,
+        similarityThreshold: input.similarityThreshold
+      });
+    } else {
+      return this.questionRepo.findRandom({
+        domain: input.domain,
+        count,
+        lang: input.lang
+      });
+    }
   }
 } 

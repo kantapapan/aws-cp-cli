@@ -5,7 +5,9 @@ export enum Domain {
   CLOUD_CONCEPTS = "cloud_concepts",
   SECURITY = "security",
   TECHNOLOGY = "technology",
-  BILLING = "billing"
+  BILLING = "billing",
+  CLOUD_TECHNOLOGY = "cloud_technology",
+  BILLING_PRICING = "billing_pricing"
 }
 
 /**
@@ -18,6 +20,15 @@ export type ChoiceLabel = "A" | "B" | "C" | "D";
  */
 export interface Choices {
   [key: string]: string;
+}
+
+/**
+ * 問題の重複判定結果を表すインターフェース
+ */
+export interface DuplicationCheckResult {
+  isDuplicate: boolean;
+  similarityScore?: number;
+  duplicateWith?: Question;
 }
 
 /**
@@ -100,5 +111,134 @@ export class Question {
       data.explanation || "",
       updatedAt
     );
+  }
+
+  /**
+   * この問題が他の問題と重複しているかチェックする
+   * 
+   * @param other 比較対象の問題
+   * @param options 重複チェックのオプション
+   * @returns 重複判定結果
+   */
+  checkDuplication(other: Question, options: {
+    stemSimilarityThreshold?: number;
+    checkChoices?: boolean;
+  } = {}): DuplicationCheckResult {
+    // デフォルトオプション
+    const { 
+      stemSimilarityThreshold = 0.8,
+      checkChoices = true
+    } = options;
+
+    // 同一IDの場合は重複
+    if (this.id === other.id) {
+      return {
+        isDuplicate: true,
+        similarityScore: 1.0,
+        duplicateWith: other
+      };
+    }
+
+    // 完全に同一の問題文の場合は重複
+    if (this.stem === other.stem) {
+      return {
+        isDuplicate: true,
+        similarityScore: 1.0,
+        duplicateWith: other
+      };
+    }
+
+    // 問題文の類似度を計算
+    const similarity = this.calculateStemSimilarity(other.stem);
+    
+    // 問題文が類似している場合は重複
+    if (similarity >= stemSimilarityThreshold) {
+      return {
+        isDuplicate: true,
+        similarityScore: similarity,
+        duplicateWith: other
+      };
+    }
+
+    // 選択肢の重複チェック（オプション）
+    if (checkChoices && this.hasSimilarChoices(other)) {
+      return {
+        isDuplicate: true,
+        similarityScore: 0.7, // 選択肢ベースの類似度は低めに設定
+        duplicateWith: other
+      };
+    }
+
+    // 重複なし
+    return {
+      isDuplicate: false
+    };
+  }
+
+  /**
+   * 問題文の類似度を計算する
+   * @param otherStem 比較対象の問題文
+   * @returns 類似度（0.0〜1.0）
+   */
+  private calculateStemSimilarity(otherStem: string): number {
+    const str1 = this.stem.toLowerCase().trim();
+    const str2 = otherStem.toLowerCase().trim();
+    
+    // 完全一致
+    if (str1 === str2) return 1.0;
+    
+    // 簡易的な類似度計算
+    // 実運用ではより洗練されたアルゴリズム（Jaro-Winklerなど）の使用を推奨
+    const distance = this.levenshteinDistance(str1, str2);
+    const maxLength = Math.max(str1.length, str2.length);
+    return 1 - distance / maxLength;
+  }
+
+  /**
+   * レーベンシュタイン距離を計算（文字列編集距離）
+   */
+  private levenshteinDistance(str1: string, str2: string): number {
+    const m = str1.length;
+    const n = str2.length;
+    
+    // 動的計画法で編集距離を計算
+    const dp: number[][] = Array(m + 1).fill(0).map(() => Array(n + 1).fill(0));
+    
+    for (let i = 0; i <= m; i++) dp[i][0] = i;
+    for (let j = 0; j <= n; j++) dp[0][j] = j;
+    
+    for (let i = 1; i <= m; i++) {
+      for (let j = 1; j <= n; j++) {
+        const cost = str1[i - 1] === str2[j - 1] ? 0 : 1;
+        dp[i][j] = Math.min(
+          dp[i - 1][j] + 1,      // 削除
+          dp[i][j - 1] + 1,      // 挿入
+          dp[i - 1][j - 1] + cost // 置換
+        );
+      }
+    }
+    
+    return dp[m][n];
+  }
+
+  /**
+   * 選択肢が類似しているかチェック
+   */
+  private hasSimilarChoices(other: Question): boolean {
+    const thisChoices = Object.values(this.choices).map(c => c.toLowerCase().trim()).sort();
+    const otherChoices = Object.values(other.choices).map(c => c.toLowerCase().trim()).sort();
+    
+    // 選択肢の数が異なる場合は類似していないと判断
+    if (thisChoices.length !== otherChoices.length) return false;
+    
+    // 選択肢が80%以上一致する場合は類似と判断
+    let matchCount = 0;
+    for (let i = 0; i < thisChoices.length; i++) {
+      const similarity = 1 - this.levenshteinDistance(thisChoices[i], otherChoices[i]) / 
+                        Math.max(thisChoices[i].length, otherChoices[i].length);
+      if (similarity >= 0.8) matchCount++;
+    }
+    
+    return matchCount / thisChoices.length >= 0.8;
   }
 } 
