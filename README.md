@@ -21,7 +21,7 @@ AWS認定クラウドプラクティショナー試験の対策用模擬試験CL
 
 ```bash
 # リポジトリのクローン
-git clone https://github.com/your-username/aws-cp-cli.git
+git clone https://github.com/kantapapan/aws-cp-cli.git
 cd aws-cp-cli
 
 # 依存パッケージのインストール
