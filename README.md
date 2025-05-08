@@ -2,8 +2,7 @@
 
 AWS認定クラウドプラクティショナー試験の対策用模擬試験CLIアプリケーションです。オフラインで動作し、本番形式または練習モードで試験を受けることができます。
 
-![image](https://github.com/user-attachments/assets/1ab522af-8c82-41a7-a172-d1ebea100e86)
-
+![image](https://github.com/user-attachments/assets/c9e1ff1b-27c5-43a9-a4f2-f3fa47207fa3)
 
 ## 機能
 
