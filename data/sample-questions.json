@@ -973,5 +973,185 @@
     "answer": "B",
     "explanation": "AWS Lambdaはイベント駆動のサーバーレスコンピューティングサービスで、特定のイベントが発生したときにのみコードを実行します。サーバーの管理は不要です。",
     "updatedAt": 1684123456853
-  }
+  },
+  {
+    "id": "q101",
+    "lang": "jp",
+    "domain": "cloud_concepts",
+    "stem": "オンプレミス 3 年リースのサーバー 15 台を AWS に移行するとき、最も直接的に削減できるコストはどれですか？",
+    "choices": {
+      "A": "アップフロントの資本支出 (CAPEX)",
+      "B": "可変的な運用コスト (OPEX)",
+      "C": "ネットワーク転送料金",
+      "D": "AWS サポートプラン費用"
+    },
+    "answer": "A",
+    "explanation": "CAPEX を OPEX に置き換えられる点がクラウドの主要な経済的メリット。",
+    "updatedAt": 1714972800000
+  },
+  {
+    "id": "q102",
+    "lang": "jp",
+    "domain": "security",
+    "stem": "会社が自社の Active Directory と AWS アカウントを連携し、ユーザーが一度のログインで AWS コンソールに入れる仕組みはどれですか？",
+    "choices": {
+      "A": "AWS Organizations",
+      "B": "IAM ロールによる SAML フェデレーション",
+      "C": "IAM ユーザーを直接作成",
+      "D": "Amazon Cognito ユーザープール"
+    },
+    "answer": "B",
+    "explanation": "オンプレ IdP と SAML 連携し、IAM ロールにアサートするのが一般的。",
+    "updatedAt": 1714972800000
+  },
+  {
+    "id": "q103",
+    "lang": "jp",
+    "domain": "cloud_technology",
+    "stem": "開発チームは夜間トラフィックが 80% 減少する EC2 Auto Scaling グループを運用しています。コスト最適化を自動化するために最も適切な手法はどれですか？",
+    "choices": {
+      "A": "定期スケジュールベースのスケーリング",
+      "B": "ロードバランサーのヘルスチェック無効化",
+      "C": "EC2 フリートの有効化",
+      "D": "リザーブドインスタンスの 3 年一括前払い"
+    },
+    "answer": "A",
+    "explanation": "利用パターンが予測可能なので scheduled scaling がコスト効率大。",
+    "updatedAt": 1714972800000
+  },
+  {
+    "id": "q104",
+    "lang": "jp",
+    "domain": "billing_pricing",
+    "stem": "コストエクスプローラーで月次コストを分析していたところ、\"Requests-Tier2\" という項目が急増していました。主な要因として最も考えられるサービスはどれですか？",
+    "choices": {
+      "A": "Amazon S3 GET/PUT オペレーション",
+      "B": "AWS Lambda 呼び出し回数",
+      "C": "CloudWatch Logs データ取り込み",
+      "D": "DynamoDB 読み込み・書き込みキャパシティー"
+    },
+    "answer": "A",
+    "explanation": "S3 リクエスト料金は \"Requests-Tier1/Tier2\" として課金明細に現れる。",
+    "updatedAt": 1714972800000
+  },
+  {
+    "id": "q105",
+    "lang": "jp",
+    "domain": "security",
+    "stem": "Amazon S3 バケットに対しパブリックアクセスを完全にブロックし、組織内のアカウントだけがアクセスできる設定はどの組み合わせで実現すべきですか？",
+    "choices": {
+      "A": "バケットポリシー + S3 Block Public Access",
+      "B": "ACL の削除のみ",
+      "C": "KMS 暗号化のみ",
+      "D": "IAM ポリシーのみ"
+    },
+    "answer": "A",
+    "explanation": "バケットポリシーで Org 条件を付け、Block Public Access で外部を遮断する。",
+    "updatedAt": 1714972800000
+  },
+  {
+    "id": "q106",
+    "lang": "jp",
+    "domain": "cloud_concepts",
+    "stem": "AWS が管理する責任の例として正しいものはどれですか？",
+    "choices": {
+      "A": "EC2 インスタンスの OS パッチ適用",
+      "B": "S3 サービスの物理セキュリティ",
+      "C": "アプリケーションの入力バリデーション",
+      "D": "IAM ロールの最小権限設定"
+    },
+    "answer": "B",
+    "explanation": "Shared Responsibility Model で物理インフラは AWS の責任。",
+    "updatedAt": 1714972800000
+  },
+  {
+    "id": "q107",
+    "lang": "jp",
+    "domain": "cloud_technology",
+    "stem": "グローバルユーザーが数ミリ秒以内に読み取りレイテンシを求めるアプリ。最適なデータ配信方法は？",
+    "choices": {
+      "A": "Amazon CloudFront + S3 オリジン",
+      "B": "VPC エンドポイント",
+      "C": "AWS Direct Connect",
+      "D": "Amazon Macie"
+    },
+    "answer": "A",
+    "explanation": "エッジロケーションでキャッシュし低レイテンシを提供。",
+    "updatedAt": 1714972800000
+  },
+  {
+    "id": "q108",
+    "lang": "jp",
+    "domain": "billing_pricing",
+    "stem": "Compute Savings Plans と EC2 インスタンス予約 (RI) の主な違いはどれですか？",
+    "choices": {
+      "A": "Savings Plans はリージョン固定である",
+      "B": "RI はサービス混在に適用できる",
+      "C": "Savings Plans はインスタンスタイプを柔軟に変更できる",
+      "D": "RI は利用率に関わらず一律割引率"
+    },
+    "answer": "C",
+    "explanation": "Compute Savings Plans はファミリー・OS を跨いで自動適用される。",
+    "updatedAt": 1714972800000
+  },
+  {
+    "id": "q109",
+    "lang": "jp",
+    "domain": "security",
+    "stem": "機密データを保存する RDS MySQL インスタンスで、データベースファイルをアプリ側に変更なく暗号化したい。推奨されるオプションは？",
+    "choices": {
+      "A": "アプリで AES-256 暗号化して INSERT",
+      "B": "Transparent Data Encryption (TDE) を有効化",
+      "C": "KMS 連携の RDS 暗号化を有効化してスナップショットを再作成",
+      "D": "RDS インスタンスに SSE-S3 を適用"
+    },
+    "answer": "C",
+    "explanation": "RDS は KMS を使った暗号化をサポート。TDE は RDS MySQL 未サポート。",
+    "updatedAt": 1714972800000
+  },
+  {
+    "id": "q110",
+    "lang": "jp",
+    "domain": "cloud_technology",
+    "stem": "単一 VPC 内で数百台の EC2 を一元的にログインさせたい。SSH キー管理を排除し、一時的な認証情報を配布する AWS ネイティブサービスは？",
+    "choices": {
+      "A": "Systems Manager Session Manager",
+      "B": "AWS Transfer Family",
+      "C": "EC2 Instance Connect",
+      "D": "AWS VPN Client"
+    },
+    "answer": "A",
+    "explanation": "Session Manager は IAM で許可し、SSH ポートを開けずに接続可能。",
+    "updatedAt": 1714972800000
+  },
+  {
+    "id": "q111",
+    "lang": "jp",
+    "domain": "cloud_concepts",
+    "stem": "Well-Architected Framework の設計原則 \"Design for failure\" を実践するための具体策として *最も適切* なものはどれですか？",
+    "choices": {
+      "A": "単一 AZ にリソースを集約してコスト最適化",
+      "B": "エラーレスポンスをキャッシュする",
+      "C": "疎結合アーキテクチャを採用する",
+      "D": "IAM ロールにワイルドカード権限を付与する"
+    },
+    "answer": "C",
+    "explanation": "コンポーネントを疎結合にし故障ドメインを分離するのが核心。",
+    "updatedAt": 1714972800000
+  },
+  {
+    "id": "q112",
+    "lang": "jp",
+    "domain": "billing_pricing",
+    "stem": "開発チームがコスト異常検知アラートを即座に受け取りたい。追加料金なしで利用できる AWS サービスはどれですか？",
+    "choices": {
+      "A": "AWS Budgets アラート",
+      "B": "AWS Cost Explorer Rightsizing",
+      "C": "AWS Trusted Advisor",
+      "D": "AWS Support ベーシックプランのケース作成"
+    },
+    "answer": "A",
+    "explanation": "Budgets にはコスト異常検知機能が含まれ、通知は無料で送れる。",
+    "updatedAt": 1714972800000
+  }  
 ] 

@@ -66,5 +66,91 @@
       "billing": 10
     },
     "duration": 943
+  },
+  {
+    "timestamp": "2025-05-06T04:41:09.403Z",
+    "mode": "exam",
+    "score": 32,
+    "correct": 21,
+    "total": 65,
+    "domainStats": {
+      "cloud_concepts": 1,
+      "security": 6,
+      "technology": 9,
+      "billing": 5
+    },
+    "duration": 13
+  },
+  {
+    "timestamp": "2025-05-06T05:00:02.330Z",
+    "mode": "practice",
+    "score": 40,
+    "correct": 2,
+    "total": 5,
+    "domainStats": {
+      "security": 2
+    },
+    "duration": 4
+  },
+  {
+    "timestamp": "2025-05-06T05:03:01.980Z",
+    "mode": "exam",
+    "score": 38,
+    "correct": 3,
+    "total": 8,
+    "domainStats": {
+      "cloud_concepts": 1,
+      "technology": 1,
+      "billing": 1,
+      "security": 0
+    },
+    "duration": 13
+  },
+  {
+    "timestamp": "2025-05-06T05:26:42.535Z",
+    "mode": "exam",
+    "score": 35,
+    "correct": 7,
+    "total": 20,
+    "domainStats": {
+      "security": 1,
+      "cloud_concepts": 0,
+      "technology": 3,
+      "billing": 1,
+      "cloud_technology": 1,
+      "billing_pricing": 1
+    },
+    "duration": 21
+  },
+  {
+    "timestamp": "2025-05-06T05:26:59.030Z",
+    "mode": "exam",
+    "score": 25,
+    "correct": 5,
+    "total": 20,
+    "domainStats": {
+      "security": 3,
+      "cloud_concepts": 0,
+      "technology": 2,
+      "billing": 0,
+      "billing_pricing": 0
+    },
+    "duration": 5
+  },
+  {
+    "timestamp": "2025-05-17T13:09:55.014Z",
+    "mode": "exam",
+    "score": 35,
+    "correct": 7,
+    "total": 20,
+    "domainStats": {
+      "security": 2,
+      "cloud_concepts": 1,
+      "billing": 1,
+      "technology": 1,
+      "cloud_technology": 1,
+      "billing_pricing": 1
+    },
+    "duration": 42
   }
 ]
