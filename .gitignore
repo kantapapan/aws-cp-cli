@@ -38,4 +38,5 @@ tmp/
 temp/
 
 # User data
-data/stats.json 
+data/stats.json
+!data/stats.json.example 

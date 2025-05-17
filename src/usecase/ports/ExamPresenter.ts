@@ -51,4 +51,12 @@ export interface ExamPresenter {
    * @param error エラーメッセージまたはエラーオブジェクト
    */
   showError(error: string | Error): Promise<void>;
+
+  /**
+   * 問題の解答と解説を表示する
+   * @param question 問題
+   * @param userAnswer ユーザーの回答
+   * @param isCorrect 正解かどうか
+   */
+  showAnswerExplanation(question: Question, userAnswer: string, isCorrect: boolean): Promise<void>;
 } 

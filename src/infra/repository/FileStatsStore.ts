@@ -11,6 +11,7 @@ import { injectable } from 'tsyringe';
 @injectable()
 export class FileStatsStore implements StatsStore {
   private statsFilePath: string;
+  private templateFilePath: string;
   private results: ExamResult[] = [];
   private isInitialized = false;
 
@@ -22,11 +23,12 @@ export class FileStatsStore implements StatsStore {
     const __filename = fileURLToPath(import.meta.url);
     const __dirname = path.dirname(__filename);
     this.statsFilePath = path.resolve(__dirname, '../../../data/stats.json');
+    this.templateFilePath = path.resolve(__dirname, '../../../data/stats.json.example');
   }
 
   /**
    * ストアを初期化する
-   * ファイルが存在しない場合は、空の統計情報が作成される
+   * ファイルが存在しない場合は、テンプレートからコピーして初期化する
    */
   private async initialize(): Promise<void> {
     if (this.isInitialized) return;
@@ -42,15 +44,27 @@ export class FileStatsStore implements StatsStore {
         timestamp: new Date(raw.timestamp)
       }));
     } catch (error) {
-      // ファイルが存在しない場合は空の配列で初期化
-      this.results = [];
-      
-      // ディレクトリが存在しない場合は作成
-      const directory = path.dirname(this.statsFilePath);
-      await fs.mkdir(directory, { recursive: true });
-      
-      // 空のJSONファイルを作成
-      await this.saveToFile();
+      // ファイルが存在しない場合はテンプレートからコピー
+      try {
+        // ディレクトリが存在しない場合は作成
+        const directory = path.dirname(this.statsFilePath);
+        await fs.mkdir(directory, { recursive: true });
+
+        // テンプレートファイルをコピー
+        const templateData = await fs.readFile(this.templateFilePath, 'utf-8');
+        await fs.writeFile(this.statsFilePath, templateData, 'utf-8');
+        
+        // テンプレートデータを読み込む
+        const rawResults = JSON.parse(templateData);
+        this.results = rawResults.map((raw: any) => ({
+          ...raw,
+          timestamp: new Date(raw.timestamp)
+        }));
+      } catch (templateError) {
+        // テンプレートファイルも存在しない場合は空の配列で初期化
+        this.results = [];
+        await this.saveToFile();
+      }
     }
     
     this.isInitialized = true;

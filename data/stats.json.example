@@ -1,0 +1,18 @@
+[
+  {
+    "timestamp": "2024-01-01T00:00:00.000Z",
+    "mode": "practice",
+    "score": 0,
+    "correct": 0,
+    "total": 5,
+    "domainStats": {
+      "cloud_concepts": 0,
+      "security": 0,
+      "technology": 0,
+      "billing": 0,
+      "cloud_technology": 0,
+      "billing_pricing": 0
+    },
+    "duration": 0
+  }
+] 

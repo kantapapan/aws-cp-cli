@@ -2,6 +2,7 @@ import { ExamPresenter, ExamSummaryDTO, QuestionDTO } from '../../usecase/ports/
 import chalk from 'chalk';
 import prompts from 'prompts';
 import { injectable } from 'tsyringe';
+import { Question } from '../../domain/Question.js';
 
 /**
  * CLI用のExamPresenter実装
@@ -194,5 +195,43 @@ export class CliExamPresenter implements ExamPresenter {
     };
     
     return domainNames[domainKey] || domainKey;
+  }
+
+  /**
+   * 問題の解答と解説を表示する
+   * @param question 問題
+   * @param userAnswer ユーザーの回答
+   * @param isCorrect 正解かどうか
+   */
+  async showAnswerExplanation(question: Question, userAnswer: string, isCorrect: boolean): Promise<void> {
+    console.log(chalk.cyan('\n======================================'));
+    console.log(chalk.cyan('解答と解説'));
+    console.log(chalk.cyan('======================================\n'));
+
+    // 正解/不正解の表示
+    console.log(`結果: ${isCorrect ? chalk.green('正解') : chalk.red('不正解')}\n`);
+
+    // 選択肢の表示
+    console.log('選択肢:');
+    Object.entries(question.choices).forEach(([key, value]) => {
+      if (key === question.answer) {
+        console.log(chalk.green(`  ${key}: ${value} (正解)`));
+      } else if (key === userAnswer) {
+        console.log(chalk.red(`  ${key}: ${value} (あなたの回答)`));
+      } else {
+        console.log(`  ${key}: ${value}`);
+      }
+    });
+
+    // 解説の表示
+    console.log(chalk.cyan(`\n解説: ${question.explanation}`));
+
+    // 続行を促す
+    await prompts({
+      type: 'confirm',
+      name: 'continue',
+      message: '次の問題へ進む',
+      initial: true
+    });
   }
 } 

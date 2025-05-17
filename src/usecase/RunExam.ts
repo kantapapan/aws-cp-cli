@@ -1,8 +1,10 @@
 import 'reflect-metadata';
 import { injectable, inject } from 'tsyringe';
-import { ExamSession, Score } from '../domain/ExamSession.js';
+import { ExamSession, Score, ExamMode } from '../domain/ExamSession.js';
 import { ExamPresenter, QuestionDTO, ExamSummaryDTO } from './ports/ExamPresenter.js';
 import { StatsStore, ExamResult } from './ports/StatsStore.js';
+import chalk from 'chalk';
+import prompts from 'prompts';
 
 /**
  * 試験を実行するユースケース
@@ -49,6 +51,16 @@ export class RunExam {
         // 回答を記録
         session.submitAnswer(answer as any);
         
+        // 練習モードの場合、1問ごとに解答を表示
+        if (session.mode === ExamMode.PRACTICE) {
+          const isCorrect = answer === currentQuestion.answer;
+          await this.presenter.showAnswerExplanation(
+            currentQuestion,
+            answer,
+            isCorrect
+          );
+        }
+        
         // 進捗を表示
         await this.presenter.showProgress(questionNumber, totalQuestions, remainingTime);
         
@@ -71,13 +83,18 @@ export class RunExam {
         }
       });
       
-      // 結果を表示
-      await this.presenter.showSummary({
-        score,
-        duration,
-        questions: session.questions,
-        userAnswers
-      });
+      // 結果を表示（本番モードの場合のみ詳細な結果を表示）
+      if (session.mode === ExamMode.FULL_EXAM) {
+        await this.presenter.showSummary({
+          score,
+          duration,
+          questions: session.questions,
+          userAnswers
+        });
+      } else {
+        // 練習モードの場合は簡易的な結果のみ表示
+        await this.showPracticeSummary(score, duration);
+      }
       
       // 結果を保存
       await this.saveResult(session, score, duration);
@@ -87,6 +104,28 @@ export class RunExam {
       await this.presenter.showError(error instanceof Error ? error : String(error));
       throw error;
     }
+  }
+  
+  /**
+   * 練習モード用の簡易的な結果表示
+   */
+  private async showPracticeSummary(score: Score, duration: number): Promise<void> {
+    console.log(chalk.cyan('\n======================================'));
+    console.log(chalk.cyan('練習結果'));
+    console.log(chalk.cyan('======================================\n'));
+    
+    console.log(`正解数: ${score.correct}/${score.total} (${score.percent()}%)`);
+    
+    const minutes = Math.floor(duration / 60);
+    const seconds = duration % 60;
+    console.log(`所要時間: ${minutes}分${seconds}秒\n`);
+    
+    await prompts({
+      type: 'confirm',
+      name: 'continue',
+      message: 'メインメニューに戻る',
+      initial: true
+    });
   }
   
   /**
