@@ -152,5 +152,33 @@
       "billing_pricing": 1
     },
     "duration": 42
+  },
+  {
+    "timestamp": "2025-05-17T13:14:50.375Z",
+    "mode": "practice",
+    "score": 20,
+    "correct": 1,
+    "total": 5,
+    "domainStats": {
+      "cloud_concepts": 0,
+      "billing": 1
+    },
+    "duration": 5
+  },
+  {
+    "timestamp": "2025-05-17T13:14:54.782Z",
+    "mode": "exam",
+    "score": 25,
+    "correct": 5,
+    "total": 20,
+    "domainStats": {
+      "technology": 3,
+      "cloud_concepts": 0,
+      "billing_pricing": 1,
+      "security": 0,
+      "billing": 0,
+      "cloud_technology": 1
+    },
+    "duration": 4
   }
 ]
