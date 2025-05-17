@@ -35,4 +35,7 @@ coverage/
 
 # Temporary files
 tmp/
-temp/ 
+temp/
+
+# User data
+data/stats.json 
