@@ -4,12 +4,7 @@
     "lang": "jp",
     "domain": "saa_secure_architectures",
     "stem": "Amazon S3バケットのデータを暗号化する推奨方法はどれですか？",
-    "choices": {
-      "A": "サーバーサイド暗号化",
-      "B": "クライアントサイド暗号化",
-      "C": "デフォルトで暗号化は不要",
-      "D": "オブジェクトごとにキーを保存"
-    },
+    "choices": {"A": "サーバーサイド暗号化", "B": "クライアントサイド暗号化", "C": "デフォルトで暗号化は不要", "D": "オブジェクトごとにキーを保存"},
     "answer": "A",
     "explanation": "S3ではサーバーサイド暗号化の利用が一般的です。",
     "updatedAt": 1684123456789
@@ -19,14 +14,189 @@
     "lang": "jp",
     "domain": "saa_resilient_architectures",
     "stem": "高可用性を実現するための設計として最適なのはどれですか？",
-    "choices": {
-      "A": "単一AZで複数インスタンスを実行",
-      "B": "複数AZにまたがるロードバランサー",
-      "C": "単一AZでスケールアウト",
-      "D": "オンプレミスのみで実行"
-    },
+    "choices": {"A": "単一AZで複数インスタンスを実行", "B": "複数AZにまたがるロードバランサー", "C": "単一AZでスケールアウト", "D": "オンプレミスのみで実行"},
     "answer": "B",
     "explanation": "複数AZでのロードバランシングが高可用性を提供します。",
     "updatedAt": 1684123456790
+  },
+  {
+    "id": "saa003",
+    "lang": "jp",
+    "domain": "saa_secure_architectures",
+    "stem": "IAMユーザーの一時的な認証情報を発行するサービスはどれですか？",
+    "choices": {"A": "Amazon Cognito", "B": "AWS STS", "C": "AWS Directory Service", "D": "AWS Organizations"},
+    "answer": "B",
+    "explanation": "STSを使用すると一時的なセキュリティ認証情報を取得できます。",
+    "updatedAt": 1684123456791
+  },
+  {
+    "id": "saa004",
+    "lang": "jp",
+    "domain": "saa_secure_architectures",
+    "stem": "VPCでネットワークACLを使用する主な目的は何ですか？",
+    "choices": {"A": "接続されたVPNを管理する", "B": "サブネット間のトラフィックをフィルタリングする", "C": "EC2インスタンスの起動数を制限する", "D": "セキュリティグループを置き換える"},
+    "answer": "B",
+    "explanation": "ネットワークACLはサブネットレベルでのステートレスなフィルタリングに使用します。",
+    "updatedAt": 1684123456792
+  },
+  {
+    "id": "saa005",
+    "lang": "jp",
+    "domain": "saa_resilient_architectures",
+    "stem": "複数リージョンでアプリケーションをホストする主な理由は何ですか？",
+    "choices": {"A": "コスト削減", "B": "法規制対応と待機時間短縮", "C": "複数のVPC管理を簡素化", "D": "デプロイ作業を減らす"},
+    "answer": "B",
+    "explanation": "リージョン間冗長により耐障害性向上やレイテンシの削減が可能です。",
+    "updatedAt": 1684123456793
+  },
+  {
+    "id": "saa006",
+    "lang": "jp",
+    "domain": "saa_resilient_architectures",
+    "stem": "RDSマルチAZ配置の主目的は何ですか？",
+    "choices": {"A": "読み取り性能を向上させる", "B": "高可用性とフェイルオーバーを提供する", "C": "コストを下げる", "D": "自動的なスケールアウトを実現する"},
+    "answer": "B",
+    "explanation": "マルチAZ配置は障害発生時のフェイルオーバーを可能にします。",
+    "updatedAt": 1684123456794
+  },
+  {
+    "id": "saa007",
+    "lang": "jp",
+    "domain": "saa_high_performance_architectures",
+    "stem": "高速なディスク性能が必要なワークロードに最も適したEBSボリュームタイプはどれですか？",
+    "choices": {"A": "スループット最適化HDD", "B": "Cold HDD", "C": "汎用SSD", "D": "プロビジョンドIOPS SSD"},
+    "answer": "D",
+    "explanation": "プロビジョンドIOPS SSDは高IOPS性能を提供します。",
+    "updatedAt": 1684123456795
+  },
+  {
+    "id": "saa008",
+    "lang": "jp",
+    "domain": "saa_high_performance_architectures",
+    "stem": "キャッシュレイヤとして利用できるサービスはどれですか？",
+    "choices": {"A": "Amazon ElastiCache", "B": "AWS DataSync", "C": "AWS Direct Connect", "D": "AWS Backup"},
+    "answer": "A",
+    "explanation": "ElastiCacheはアプリケーションのキャッシュとして利用されます。",
+    "updatedAt": 1684123456796
+  },
+  {
+    "id": "saa009",
+    "lang": "jp",
+    "domain": "saa_high_performance_architectures",
+    "stem": "グローバルに展開するアプリケーションのレイテンシを最小化するサービスはどれですか？",
+    "choices": {"A": "Amazon Route 53", "B": "AWS Glue", "C": "Amazon EMR", "D": "Amazon Inspector"},
+    "answer": "A",
+    "explanation": "Route 53のレイテンシベースルーティングを利用します。",
+    "updatedAt": 1684123456797
+  },
+  {
+    "id": "saa010",
+    "lang": "jp",
+    "domain": "saa_cost_optimized_architectures",
+    "stem": "コスト効率の高いアーカイブストレージサービスはどれですか？",
+    "choices": {"A": "Amazon S3 Glacier", "B": "Amazon EFS", "C": "Amazon EBS", "D": "Amazon Redshift"},
+    "answer": "A",
+    "explanation": "S3 Glacierは低コストでアーカイブ用途に最適です。",
+    "updatedAt": 1684123456798
+  },
+  {
+    "id": "saa011",
+    "lang": "jp",
+    "domain": "saa_cost_optimized_architectures",
+    "stem": "一定期間利用しないボリュームを自動で停止できるサービスはどれですか？",
+    "choices": {"A": "Amazon EC2 スポットインスタンス", "B": "AWS Backup", "C": "AWS Instance Scheduler", "D": "AWS Storage Gateway"},
+    "answer": "C",
+    "explanation": "Instance Schedulerにより不要な時間帯のインスタンス停止が可能です。",
+    "updatedAt": 1684123456799
+  },
+  {
+    "id": "saa012",
+    "lang": "jp",
+    "domain": "saa_cost_optimized_architectures",
+    "stem": "AWS Lambdaを使用する主な利点はどれですか？",
+    "choices": {"A": "サーバーを自分で管理できる", "B": "使用した分だけ課金される", "C": "長時間実行に最適", "D": "オンプレミス専用"},
+    "answer": "B",
+    "explanation": "Lambdaは実行時間に応じて課金され、インフラ管理が不要です。",
+    "updatedAt": 1684123456800
+  },
+  {
+    "id": "saa013",
+    "lang": "jp",
+    "domain": "saa_resilient_architectures",
+    "stem": "ステートフルなアプリケーションのフェイルオーバー構成で考慮すべきポイントはどれですか？",
+    "choices": {"A": "DNS TTLを長く設定する", "B": "セッション管理を外部化する", "C": "マルチAZを避ける", "D": "ロードバランサーを使用しない"},
+    "answer": "B",
+    "explanation": "セッション管理を外部化することでフェイルオーバーが容易になります。",
+    "updatedAt": 1684123456801
+  },
+  {
+    "id": "saa014",
+    "lang": "jp",
+    "domain": "saa_high_performance_architectures",
+    "stem": "性能に敏感なワークロード向けに、最も高いネットワーク帯域幅を持つEC2インスタンスタイプはどれですか？",
+    "choices": {"A": "t3.micro", "B": "m5.large", "C": "c5n.18xlarge", "D": "r5.large"},
+    "answer": "C",
+    "explanation": "c5nファミリーは高いネットワーク帯域幅を提供します。",
+    "updatedAt": 1684123456802
+  },
+  {
+    "id": "saa015",
+    "lang": "jp",
+    "domain": "saa_cost_optimized_architectures",
+    "stem": "断続的にしか利用しないデータベースワークロードに最適な料金モデルはどれですか？",
+    "choices": {"A": "オンデマンドインスタンス", "B": "リザーブドインスタンス", "C": "スポットインスタンス", "D": "Savings Plans"},
+    "answer": "B",
+    "explanation": "長期利用が見込まれる場合はリザーブドインスタンスでコスト削減できます。",
+    "updatedAt": 1684123456803
+  },
+  {
+    "id": "saa016",
+    "lang": "jp",
+    "domain": "saa_secure_architectures",
+    "stem": "EC2インスタンスへのSSHアクセスを安全に管理するサービスはどれですか？",
+    "choices": {"A": "AWS Systems Manager Session Manager", "B": "AWS Cloud9", "C": "Amazon WorkSpaces", "D": "AWS CloudShell"},
+    "answer": "A",
+    "explanation": "Session Managerを使うことでSSHキーを公開せず安全にアクセス可能です。",
+    "updatedAt": 1684123456804
+  },
+  {
+    "id": "saa017",
+    "lang": "jp",
+    "domain": "saa_secure_architectures",
+    "stem": "セキュリティグループと比較したネットワークACLの特徴はどれですか？",
+    "choices": {"A": "ステートフルである", "B": "VPC全体に適用される", "C": "ステートレスである", "D": "インスタンス単位で設定する"},
+    "answer": "C",
+    "explanation": "ネットワークACLはステートレスでサブネット単位に適用されます。",
+    "updatedAt": 1684123456805
+  },
+  {
+    "id": "saa018",
+    "lang": "jp",
+    "domain": "saa_resilient_architectures",
+    "stem": "SQSを使用する主な利点は何ですか？",
+    "choices": {"A": "リアルタイムでメッセージを処理できる", "B": "アプリケーションの疎結合化", "C": "データ圧縮を自動で行う", "D": "メッセージを永続的に保持しない"},
+    "answer": "B",
+    "explanation": "SQSによりコンポーネント間を疎結合にでき、耐障害性が向上します。",
+    "updatedAt": 1684123456806
+  },
+  {
+    "id": "saa019",
+    "lang": "jp",
+    "domain": "saa_high_performance_architectures",
+    "stem": "負荷分散とSSL終端を単一サービスで行いたい場合、適切なサービスはどれですか？",
+    "choices": {"A": "Elastic Load Balancing Application Load Balancer", "B": "Amazon CloudFront", "C": "AWS Global Accelerator", "D": "Amazon API Gateway"},
+    "answer": "A",
+    "explanation": "ALBはHTTPSの終端と負荷分散を同時に提供します。",
+    "updatedAt": 1684123456807
+  },
+  {
+    "id": "saa020",
+    "lang": "jp",
+    "domain": "saa_cost_optimized_architectures",
+    "stem": "一時的な分析ワークロードに適したデータウェアハウスサービスはどれですか？",
+    "choices": {"A": "Amazon Redshift Spectrum", "B": "Amazon Timestream", "C": "Amazon Neptune", "D": "AWS Glue"},
+    "answer": "A",
+    "explanation": "Redshift Spectrumならデータレイク上のデータを必要なときだけ分析できます。",
+    "updatedAt": 1684123456808
   }
 ]
