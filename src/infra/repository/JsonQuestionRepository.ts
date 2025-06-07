@@ -25,6 +25,14 @@ export class JsonQuestionRepository implements QuestionRepository {
     this.dataFilePath = path.resolve(__dirname, '../../../data/sample-questions.json');
   }
 
+  setExamType(type: string): void {
+    const __filename = fileURLToPath(import.meta.url);
+    const __dirname = path.dirname(__filename);
+    const filename = type === 'saa' ? 'saa-questions.json' : 'sample-questions.json';
+    this.dataFilePath = path.resolve(__dirname, `../../../data/${filename}`);
+    this.isInitialized = false;
+  }
+
   /**
    * リポジトリを初期化して問題データを読み込む
    */

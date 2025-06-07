@@ -6,6 +6,7 @@ import { Score } from '../../domain/ExamSession.js';
  */
 export interface ExamResult {
   timestamp: Date;
+  examType: string;
   mode: ExamMode;
   score: number;
   correct: number;

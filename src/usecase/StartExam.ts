@@ -9,6 +9,7 @@ import { QuestionRepository, ExamPresenter } from './ports/index.js';
  * StartExamユースケースの入力パラメータ
  */
 export interface StartExamInput {
+  examType: string;
   mode: ExamMode;
   domain?: Domain;
   count?: number;
@@ -40,6 +41,7 @@ export class StartExam {
    */
   async execute(input: StartExamInput): Promise<ExamSession> {
     try {
+      this.questionRepo.setExamType(input.examType);
       // モードに基づいて問題数を決定
       const count = this.determineQuestionCount(input);
       
@@ -56,10 +58,13 @@ export class StartExam {
       }
       
       // 試験セッションを作成
+      const timeLimit = input.examType === 'saa' ? 130 : 90;
+
       const session = new ExamSession(
         questions,
         input.mode,
-        input.mode === ExamMode.FULL_EXAM ? 90 : 30
+        input.mode === ExamMode.FULL_EXAM ? timeLimit : 30,
+        input.examType
       );
       
       return session;

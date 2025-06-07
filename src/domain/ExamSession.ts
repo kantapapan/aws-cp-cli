@@ -59,7 +59,8 @@ export class ExamSession {
   constructor(
     public readonly questions: Question[],
     public readonly mode: ExamMode = ExamMode.FULL_EXAM,
-    public readonly timeLimit: number = 90
+    public readonly timeLimit: number = 90,
+    public readonly examType: string = 'cp'
   ) {
     this.startTime = new Date();
   }

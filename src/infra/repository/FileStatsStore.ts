@@ -41,6 +41,7 @@ export class FileStatsStore implements StatsStore {
       const rawResults = JSON.parse(data);
       this.results = rawResults.map((raw: any) => ({
         ...raw,
+        examType: raw.examType ?? 'cp',
         timestamp: new Date(raw.timestamp)
       }));
     } catch (error) {
@@ -58,6 +59,7 @@ export class FileStatsStore implements StatsStore {
         const rawResults = JSON.parse(templateData);
         this.results = rawResults.map((raw: any) => ({
           ...raw,
+          examType: raw.examType ?? 'cp',
           timestamp: new Date(raw.timestamp)
         }));
       } catch (templateError) {
