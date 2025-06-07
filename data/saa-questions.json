@@ -1,5 +1,34 @@
 [
   {
+    "id": "saa001",
+    "lang": "jp",
+    "domain": "saa_secure_architectures",
+    "stem": "Amazon S3バケットのデータを暗号化する推奨方法はどれですか？",
+    "choices": {
+      "A": "サーバーサイド暗号化",
+      "B": "クライアントサイド暗号化",
+      "C": "デフォルトで暗号化は不要",
+      "D": "オブジェクトごとにキーを保存"
+    },
+    "answer": "A",
+    "explanation": "S3ではサーバーサイド暗号化の利用が一般的です。",
+    "updatedAt": 1684123456789
+  },
+  {
+    "id": "saa002",
+    "lang": "jp",
+    "domain": "saa_resilient_architectures",
+    "stem": "高可用性を実現するための設計として最適なのはどれですか？",
+    "choices": {
+      "A": "単一AZで複数インスタンスを実行",
+      "B": "複数AZにまたがるロードバランサー",
+      "C": "単一AZでスケールアウト",
+      "D": "オンプレミスのみで実行"
+    },
+    "answer": "B",
+    "explanation": "複数AZでのロードバランシングが高可用性を提供します。",
+    "updatedAt": 1684123456790
+=======
     "id": "q201",
     "lang": "jp",
     "domain": "cloud_technology",

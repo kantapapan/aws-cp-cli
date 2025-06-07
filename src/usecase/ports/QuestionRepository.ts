@@ -4,6 +4,7 @@ import { Domain, Question } from '../../domain/Question.js';
  * 問題を取得するためのリポジトリインターフェース
  */
 export interface QuestionRepository {
+  setExamType(type: string): void;
   /**
    * 指定されたドメインからランダムに問題を取得する
    * @param params.domain 取得する問題のドメイン（省略可）

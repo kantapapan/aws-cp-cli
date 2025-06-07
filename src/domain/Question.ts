@@ -7,7 +7,12 @@ export enum Domain {
   TECHNOLOGY = "technology",
   BILLING = "billing",
   CLOUD_TECHNOLOGY = "cloud_technology",
-  BILLING_PRICING = "billing_pricing"
+  BILLING_PRICING = "billing_pricing",
+  // SAA domains
+  SAA_SECURE_ARCHITECTURES = "saa_secure_architectures",
+  SAA_RESILIENT_ARCHITECTURES = "saa_resilient_architectures",
+  SAA_HIGH_PERFORMANCE_ARCHITECTURES = "saa_high_performance_architectures",
+  SAA_COST_OPTIMIZED_ARCHITECTURES = "saa_cost_optimized_architectures"
 }
 
 /**
