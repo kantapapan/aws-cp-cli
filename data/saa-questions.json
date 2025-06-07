@@ -1,0 +1,752 @@
+[
+  {
+    "id": "q201",
+    "lang": "jp",
+    "domain": "cloud_technology",
+    "stem": "EC2インスタンスの高可用性を確保するために推奨される設計はどれですか？",
+    "choices": {
+      "A": "単一AZでAuto Scalingを構成",
+      "B": "複数AZにまたがるAuto Scaling",
+      "C": "単一インスタンスを大容量に変更",
+      "D": "スポットインスタンスのみを使用"
+    },
+    "answer": "B",
+    "explanation": "複数AZに展開することでAZ障害に備えられるためです。",
+    "updatedAt": 1714972800000
+  },
+  {
+    "id": "q202",
+    "lang": "jp",
+    "domain": "technology",
+    "stem": "マルチAZ配置のRDSと読み取りレプリカの主な違いは何ですか？",
+    "choices": {
+      "A": "どちらも書き込み性能を向上させる",
+      "B": "マルチAZは障害対策、レプリカは読み取り性能向上",
+      "C": "レプリカは自動フェイルオーバーを提供する",
+      "D": "マルチAZはリージョン間複製を行う"
+    },
+    "answer": "B",
+    "explanation": "マルチAZは高可用性、読み取りレプリカはスケーラビリティが目的です。",
+    "updatedAt": 1714972800000
+  },
+  {
+    "id": "q203",
+    "lang": "jp",
+    "domain": "billing_pricing",
+    "stem": "頻繁にアクセスしないデータを保存する際、最もコスト効率の高いS3ストレージクラスはどれですか？",
+    "choices": {
+      "A": "S3 Standard",
+      "B": "S3 Intelligent-Tiering",
+      "C": "S3 Standard-IA",
+      "D": "S3 Glacier Instant Retrieval"
+    },
+    "answer": "C",
+    "explanation": "Standard-IAはアクセス頻度が低いオブジェクト向けに低料金を提供します。",
+    "updatedAt": 1714972800000
+  },
+  {
+    "id": "q204",
+    "lang": "jp",
+    "domain": "cloud_technology",
+    "stem": "グローバルな静的コンテンツ配信を高速化するサービスはどれですか？",
+    "choices": {
+      "A": "Amazon CloudFront",
+      "B": "Amazon Route53",
+      "C": "Amazon S3 Transfer Acceleration",
+      "D": "AWS VPN"
+    },
+    "answer": "A",
+    "explanation": "CloudFrontは世界中のエッジから低レイテンシでコンテンツを配信できます。",
+    "updatedAt": 1714972800000
+  },
+  {
+    "id": "q205",
+    "lang": "jp",
+    "domain": "security",
+    "stem": "アプリケーションから他のAWSサービスへ安全にアクセスするために推奨される方法はどれですか？",
+    "choices": {
+      "A": "IAMユーザーのアクセスキーをコードに埋め込む",
+      "B": "IAMロールを使用する",
+      "C": "rootユーザーの認証情報を使う",
+      "D": "アクセスキーを環境変数に保存する"
+    },
+    "answer": "B",
+    "explanation": "IAMロールを利用すれば一時的な認証情報を自動的に取得できます。",
+    "updatedAt": 1714972800000
+  },
+  {
+    "id": "q206",
+    "lang": "jp",
+    "domain": "cloud_technology",
+    "stem": "S3バケットをリージョン間で自動複製する機能はどれですか？",
+    "choices": {
+      "A": "オブジェクトロック",
+      "B": "クロスリージョンレプリケーション",
+      "C": "マルチパートアップロード",
+      "D": "バケットポリシー"
+    },
+    "answer": "B",
+    "explanation": "クロスリージョンレプリケーションにより別リージョンへ自動転送できます。",
+    "updatedAt": 1714972800000
+  },
+  {
+    "id": "q207",
+    "lang": "jp",
+    "domain": "cloud_technology",
+    "stem": "プライベートサブネットのEC2インスタンスがインターネットへアウトバウンド通信する場合、最適な構成要素はどれですか？",
+    "choices": {
+      "A": "NATゲートウェイ",
+      "B": "インターネットゲートウェイ",
+      "C": "VPNゲートウェイ",
+      "D": "VPCピアリング"
+    },
+    "answer": "A",
+    "explanation": "NATゲートウェイをパブリックサブネットに配置してアウトバウンド通信を許可します。",
+    "updatedAt": 1714972800000
+  },
+  {
+    "id": "q208",
+    "lang": "jp",
+    "domain": "technology",
+    "stem": "AMIを作成する前に取得すべきバックアップはどれですか？",
+    "choices": {
+      "A": "EBSスナップショット",
+      "B": "EC2インスタンスストアのコピー",
+      "C": "RDSスナップショット",
+      "D": "S3バケットのレプリカ"
+    },
+    "answer": "A",
+    "explanation": "AMI作成時にはEBSボリュームのスナップショットが必要です。",
+    "updatedAt": 1714972800000
+  },
+  {
+    "id": "q209",
+    "lang": "jp",
+    "domain": "technology",
+    "stem": "大量の読み取りトラフィックをさばくためにDynamoDBで推奨される方法はどれですか？",
+    "choices": {
+      "A": "オンデマンドキャパシティーモード",
+      "B": "ストリーミングを有効化",
+      "C": "テーブルを手動でシャーディング",
+      "D": "GSIを削除する"
+    },
+    "answer": "A",
+    "explanation": "オンデマンドモードなら自動的に読み取り/書き込み容量を調整します。",
+    "updatedAt": 1714972800000
+  },
+  {
+    "id": "q210",
+    "lang": "jp",
+    "domain": "cloud_concepts",
+    "stem": "メッセージングサービスでPub/Subモデルを実装するために最適な組み合わせはどれですか？",
+    "choices": {
+      "A": "Amazon SQSキュー",
+      "B": "Amazon SNSトピック",
+      "C": "Amazon S3バケット",
+      "D": "Amazon EC2 Auto Scaling"
+    },
+    "answer": "B",
+    "explanation": "SNSトピックは1対多のメッセージ配信に適しています。",
+    "updatedAt": 1714972800000
+  },
+  {
+    "id": "q211",
+    "lang": "jp",
+    "domain": "cloud_technology",
+    "stem": "AWS CloudFormationで既存スタックを更新するときのベストプラクティスはどれですか？",
+    "choices": {
+      "A": "直接本番スタックを更新する",
+      "B": "変更セットを使って内容を確認する",
+      "C": "スタックを削除して再作成する",
+      "D": "S3にテンプレートを保存しない"
+    },
+    "answer": "B",
+    "explanation": "変更セットで差分を確認することで予期せぬ更新を防げます。",
+    "updatedAt": 1714972800000
+  },
+  {
+    "id": "q212",
+    "lang": "jp",
+    "domain": "technology",
+    "stem": "EC2インスタンスのCPU使用率を継続的に監視する最も簡単な方法は何ですか？",
+    "choices": {
+      "A": "AWS CloudTrail",
+      "B": "AWS Config",
+      "C": "Amazon CloudWatch",
+      "D": "Amazon GuardDuty"
+    },
+    "answer": "C",
+    "explanation": "CloudWatchメトリクスでCPU使用率を自動収集できます。",
+    "updatedAt": 1714972800000
+  },
+  {
+    "id": "q213",
+    "lang": "jp",
+    "domain": "technology",
+    "stem": "Lambda関数の同時実行数を制御する設定はどれですか？",
+    "choices": {
+      "A": "メモリサイズ",
+      "B": "実行ロール",
+      "C": "プロビジョンドコンカレンシー",
+      "D": "リージョン"
+    },
+    "answer": "C",
+    "explanation": "プロビジョンドコンカレンシーで同時実行数を事前確保できます。",
+    "updatedAt": 1714972800000
+  },
+  {
+    "id": "q214",
+    "lang": "jp",
+    "domain": "cloud_technology",
+    "stem": "共有ファイルストレージを複数のEC2インスタンスから同時にマウントする場合に適したサービスはどれですか？",
+    "choices": {
+      "A": "Amazon EBS",
+      "B": "Amazon EFS",
+      "C": "Amazon S3",
+      "D": "Amazon FSx for Windows"
+    },
+    "answer": "B",
+    "explanation": "EFSは複数インスタンスから同時アクセス可能なNFS共有を提供します。",
+    "updatedAt": 1714972800000
+  },
+  {
+    "id": "q215",
+    "lang": "jp",
+    "domain": "technology",
+    "stem": "RDSで自動バックアップを取得するには何を設定する必要がありますか？",
+    "choices": {
+      "A": "スナップショットの保存期間",
+      "B": "パラメータグループ",
+      "C": "マルチAZ配置",
+      "D": "VPCセキュリティグループ"
+    },
+    "answer": "A",
+    "explanation": "自動バックアップは保存期間を指定して有効化します。",
+    "updatedAt": 1714972800000
+  },
+  {
+    "id": "q216",
+    "lang": "jp",
+    "domain": "technology",
+    "stem": "API Gatewayのレスポンス高速化に寄与する機能はどれですか？",
+    "choices": {
+      "A": "ステージ変数",
+      "B": "APIキャッシュ",
+      "C": "リクエストバリデーション",
+      "D": "VPCリンク"
+    },
+    "answer": "B",
+    "explanation": "キャッシュを有効化すると繰り返しアクセスのレイテンシが低下します。",
+    "updatedAt": 1714972800000
+  },
+  {
+    "id": "q217",
+    "lang": "jp",
+    "domain": "technology",
+    "stem": "S3バケットでオブジェクトの以前のバージョンを保持する機能はどれですか？",
+    "choices": {
+      "A": "暗号化",
+      "B": "バージョニング",
+      "C": "オブジェクトロック",
+      "D": "アクセスポイント"
+    },
+    "answer": "B",
+    "explanation": "バージョニングを有効にすると削除や上書き前の状態を保持できます。",
+    "updatedAt": 1714972800000
+  },
+  {
+    "id": "q218",
+    "lang": "jp",
+    "domain": "cloud_technology",
+    "stem": "複数のWebサーバーへのトラフィックを割合で振り分けるRoute53の機能はどれですか？",
+    "choices": {
+      "A": "Geo DNSルーティング",
+      "B": "マルチバリュールーティング",
+      "C": "加重ルーティング",
+      "D": "フェイルオーバールーティング"
+    },
+    "answer": "C",
+    "explanation": "加重ルーティングを使うと重み付けでトラフィックを分散できます。",
+    "updatedAt": 1714972800000
+  },
+  {
+    "id": "q219",
+    "lang": "jp",
+    "domain": "security",
+    "stem": "KMSで管理する暗号化キーを自動的に更新する機能はどれですか？",
+    "choices": {
+      "A": "キーポリシー",
+      "B": "自動キーローテーション",
+      "C": "キーバージョニング",
+      "D": "カスタマーマスターキー"
+    },
+    "answer": "B",
+    "explanation": "自動キーローテーションを有効にすると年1回の鍵更新が行われます。",
+    "updatedAt": 1714972800000
+  },
+  {
+    "id": "q220",
+    "lang": "jp",
+    "domain": "security",
+    "stem": "RDSのデータを保存時に暗号化するために使用するオプションはどれですか？",
+    "choices": {
+      "A": "IAMロール",
+      "B": "KMSキーを利用した暗号化",
+      "C": "セキュリティグループ",
+      "D": "パラメータグループ"
+    },
+    "answer": "B",
+    "explanation": "RDSはKMSキーを指定して暗号化を有効化できます。",
+    "updatedAt": 1714972800000
+  },
+  {
+    "id": "q221",
+    "lang": "jp",
+    "domain": "cloud_technology",
+    "stem": "Auto Scalingグループがスケールインする際に発生するイベントは何ですか？",
+    "choices": {
+      "A": "EC2_INSTANCE_TERMINATE",
+      "B": "EC2_INSTANCE_LAUNCH",
+      "C": "SCHEDULED_ACTION",
+      "D": "TEST_NOTIFICATION"
+    },
+    "answer": "A",
+    "explanation": "スケールイン時はEC2_INSTANCE_TERMINATE通知が送信されます。",
+    "updatedAt": 1714972800000
+  },
+  {
+    "id": "q222",
+    "lang": "jp",
+    "domain": "technology",
+    "stem": "インスタンスストアの特徴として正しいものはどれですか？",
+    "choices": {
+      "A": "停止してもデータが保持される",
+      "B": "ボリュームをスナップショット可能",
+      "C": "インスタンス停止でデータ消失",
+      "D": "EBSより料金が高い"
+    },
+    "answer": "C",
+    "explanation": "インスタンスストアは一時的なストレージで停止や終了で内容が失われます。",
+    "updatedAt": 1714972800000
+  },
+  {
+    "id": "q223",
+    "lang": "jp",
+    "domain": "cloud_technology",
+    "stem": "複数VPC間の大規模接続を効率化するサービスはどれですか？",
+    "choices": {
+      "A": "VPCピアリング",
+      "B": "VPNゲートウェイ",
+      "C": "Transit Gateway",
+      "D": "NATインスタンス"
+    },
+    "answer": "C",
+    "explanation": "Transit Gatewayは多対多接続をシンプルに管理できます。",
+    "updatedAt": 1714972800000
+  },
+  {
+    "id": "q224",
+    "lang": "jp",
+    "domain": "technology",
+    "stem": "Elastic Beanstalk環境をダウンタイムなく更新する方法はどれですか？",
+    "choices": {
+      "A": "インプレース更新",
+      "B": "スナップショット復元",
+      "C": "ブルー/グリーンデプロイメント",
+      "D": "手動でEC2を入れ替える"
+    },
+    "answer": "C",
+    "explanation": "ブルー/グリーンを使うと新環境を用意して切り替えできます。",
+    "updatedAt": 1714972800000
+  },
+  {
+    "id": "q225",
+    "lang": "jp",
+    "domain": "cloud_concepts",
+    "stem": "AWS CLIで複数アカウントの認証情報を切り替えるために使用するファイルはどれですか？",
+    "choices": {
+      "A": "configファイル",
+      "B": "credentialsファイル",
+      "C": "hostsファイル",
+      "D": "policyファイル"
+    },
+    "answer": "B",
+    "explanation": "credentialsファイルに複数プロファイルを定義できます。",
+    "updatedAt": 1714972800000
+  },
+  {
+    "id": "q226",
+    "lang": "jp",
+    "domain": "security",
+    "stem": "コンソールログイン時に追加の認証要素を要求する設定はどれですか？",
+    "choices": {
+      "A": "IAMポリシー",
+      "B": "MFAデバイスの有効化",
+      "C": "ルートアカウント削除",
+      "D": "CloudTrail有効化"
+    },
+    "answer": "B",
+    "explanation": "MFAを有効にすると二要素認証によるセキュリティ向上が図れます。",
+    "updatedAt": 1714972800000
+  },
+  {
+    "id": "q227",
+    "lang": "jp",
+    "domain": "security",
+    "stem": "CloudTrailログを長期保存する際に推奨されるストレージはどれですか？",
+    "choices": {
+      "A": "S3バケット",
+      "B": "EBSボリューム",
+      "C": "EFSファイルシステム",
+      "D": "RDSインスタンス"
+    },
+    "answer": "A",
+    "explanation": "CloudTrailのデフォルト配送先はS3で、長期保存に適しています。",
+    "updatedAt": 1714972800000
+  },
+  {
+    "id": "q228",
+    "lang": "jp",
+    "domain": "technology",
+    "stem": "大量データをバッチでS3にロードするサービスとして最も適しているのはどれですか？",
+    "choices": {
+      "A": "Amazon Kinesis Data Streams",
+      "B": "Amazon Kinesis Data Firehose",
+      "C": "Amazon MQ",
+      "D": "Amazon SNS"
+    },
+    "answer": "B",
+    "explanation": "Kinesis Data FirehoseはストリーミングデータをS3等に自動配信します。",
+    "updatedAt": 1714972800000
+  },
+  {
+    "id": "q229",
+    "lang": "jp",
+    "domain": "cloud_technology",
+    "stem": "ECSでサーバーレスにコンテナを実行するオプションはどれですか？",
+    "choices": {
+      "A": "EC2起動タイプ",
+      "B": "Fargate起動タイプ",
+      "C": "EKS",
+      "D": "App Runner"
+    },
+    "answer": "B",
+    "explanation": "Fargateを使用するとサーバー管理不要でコンテナを実行できます。",
+    "updatedAt": 1714972800000
+  },
+  {
+    "id": "q230",
+    "lang": "jp",
+    "domain": "technology",
+    "stem": "RDSでDBエンジンの設定を変更する際に利用するオブジェクトはどれですか？",
+    "choices": {
+      "A": "イベントサブスクリプション",
+      "B": "パラメータグループ",
+      "C": "DBサブネットグループ",
+      "D": "オプショングループ"
+    },
+    "answer": "B",
+    "explanation": "パラメータグループでエンジン設定を管理します。",
+    "updatedAt": 1714972800000
+  },
+  {
+    "id": "q231",
+    "lang": "jp",
+    "domain": "security",
+    "stem": "ECRに保存したコンテナイメージの脆弱性を検出する機能はどれですか？",
+    "choices": {
+      "A": "Image Scanning",
+      "B": "Lifecycle Policy",
+      "C": "Replication",
+      "D": "Batch Delete"
+    },
+    "answer": "A",
+    "explanation": "ECRはイメージスキャンで既知の脆弱性を報告します。",
+    "updatedAt": 1714972800000
+  },
+  {
+    "id": "q232",
+    "lang": "jp",
+    "domain": "technology",
+    "stem": "複数のAWSサービスを順序立てて実行するワークフローを構築するサービスはどれですか？",
+    "choices": {
+      "A": "AWS Batch",
+      "B": "AWS Step Functions",
+      "C": "Amazon MQ",
+      "D": "AWS Data Pipeline"
+    },
+    "answer": "B",
+    "explanation": "Step Functionsは状態遷移に基づくサーバーレスワークフローを提供します。",
+    "updatedAt": 1714972800000
+  },
+  {
+    "id": "q233",
+    "lang": "jp",
+    "domain": "billing_pricing",
+    "stem": "Elastic IPアドレスに料金が発生する状況はどれですか？",
+    "choices": {
+      "A": "EC2に関連付けられている",
+      "B": "未使用である",
+      "C": "Route53で利用している",
+      "D": "VPCピアリングで使用"
+    },
+    "answer": "B",
+    "explanation": "Elastic IPを割り当てたまま未使用にすると課金されます。",
+    "updatedAt": 1714972800000
+  },
+  {
+    "id": "q234",
+    "lang": "jp",
+    "domain": "security",
+    "stem": "AWS Shield Standardと比較したとき、Shield Advancedだけが提供するものはどれですか？",
+    "choices": {
+      "A": "DDoS保護",
+      "B": "24\u6642\u76e3\u8996\u30b5\u30dd\u30fc\u30c8",
+      "C": "料金保護保証",
+      "D": "WAF連携"
+    },
+    "answer": "C",
+    "explanation": "Shield Advancedでは攻撃による料金増加を補償する機能があります。",
+    "updatedAt": 1714972800000
+  },
+  {
+    "id": "q235",
+    "lang": "jp",
+    "domain": "billing_pricing",
+    "stem": "S3 Glacierからデータを数分で取得したい場合に適切なオプションはどれですか？",
+    "choices": {
+      "A": "Standard Retrieval",
+      "B": "Expedited Retrieval",
+      "C": "Bulk Retrieval",
+      "D": "Free Tier"
+    },
+    "answer": "B",
+    "explanation": "Expedited Retrievalは1～5分でデータを取り出せます。",
+    "updatedAt": 1714972800000
+  },
+  {
+    "id": "q236",
+    "lang": "jp",
+    "domain": "technology",
+    "stem": "リソース構成の変更履歴を記録するサービスはどれですか？",
+    "choices": {
+      "A": "AWS Config",
+      "B": "Amazon Inspector",
+      "C": "AWS Trusted Advisor",
+      "D": "AWS Cloud9"
+    },
+    "answer": "A",
+    "explanation": "AWS Configは構成アイテムの履歴を追跡できます。",
+    "updatedAt": 1714972800000
+  },
+  {
+    "id": "q237",
+    "lang": "jp",
+    "domain": "security",
+    "stem": "秘匿情報を暗号化して保存し、EC2から参照したい。推奨されるサービスはどれですか？",
+    "choices": {
+      "A": "AWS Secrets Manager",
+      "B": "Amazon SQS",
+      "C": "AWS CodeCommit",
+      "D": "Amazon QuickSight"
+    },
+    "answer": "A",
+    "explanation": "Secrets Managerで安全にシークレットを保管し取得できます。",
+    "updatedAt": 1714972800000
+  },
+  {
+    "id": "q238",
+    "lang": "jp",
+    "domain": "technology",
+    "stem": "CodeDeployで段階的に新バージョンへ更新するデプロイ方式はどれですか？",
+    "choices": {
+      "A": "All-at-once",
+      "B": "Rolling",
+      "C": "In-place",
+      "D": "Immutable"
+    },
+    "answer": "B",
+    "explanation": "Rollingデプロイでは一部ずつ更新し段階的に切り替えます。",
+    "updatedAt": 1714972800000
+  },
+  {
+    "id": "q239",
+    "lang": "jp",
+    "domain": "technology",
+    "stem": "SQSメッセージの再処理を遅延させる設定はどれですか？",
+    "choices": {
+      "A": "Delivery Delay",
+      "B": "Visibility Timeout",
+      "C": "Message Retention",
+      "D": "Dead-letter Queue"
+    },
+    "answer": "B",
+    "explanation": "Visibility Timeoutを調整すると再取得までの猶予を設定できます。",
+    "updatedAt": 1714972800000
+  },
+  {
+    "id": "q240",
+    "lang": "jp",
+    "domain": "cloud_technology",
+    "stem": "ロードバランサが接続終了前にリクエスト処理完了を待つ機能はどれですか？",
+    "choices": {
+      "A": "ヘルスチェック",
+      "B": "クロスゾーン負荷分散",
+      "C": "接続ドレイン(登録解除遅延)",
+      "D": "ターゲットグループ"
+    },
+    "answer": "C",
+    "explanation": "登録解除遅延を設定すると既存接続の処理完了を待ってから終了します。",
+    "updatedAt": 1714972800000
+  },
+  {
+    "id": "q241",
+    "lang": "jp",
+    "domain": "cloud_technology",
+    "stem": "複数リージョンで同一データを自動的に同期させるDynamoDBの機能はどれですか？",
+    "choices": {
+      "A": "オンデマンドバックアップ",
+      "B": "DAX",
+      "C": "グローバルテーブル",
+      "D": "Auto Scaling"
+    },
+    "answer": "C",
+    "explanation": "グローバルテーブルはリージョン間でデータを自動同期します。",
+    "updatedAt": 1714972800000
+  },
+  {
+    "id": "q242",
+    "lang": "jp",
+    "domain": "cloud_technology",
+    "stem": "オンプレミスとAWS間で安定した専用ネットワーク接続を提供するサービスはどれですか？",
+    "choices": {
+      "A": "AWS VPN",
+      "B": "AWS Direct Connect",
+      "C": "VPCピアリング",
+      "D": "AWS DataSync"
+    },
+    "answer": "B",
+    "explanation": "Direct Connectは専用線を用いた高帯域・低レイテンシ接続を提供します。",
+    "updatedAt": 1714972800000
+  },
+  {
+    "id": "q243",
+    "lang": "jp",
+    "domain": "technology",
+    "stem": "Windowsファイル共有をAWS上で提供するマネージドサービスはどれですか？",
+    "choices": {
+      "A": "Amazon EFS",
+      "B": "Amazon FSx for Windows File Server",
+      "C": "Amazon S3",
+      "D": "Amazon EBS"
+    },
+    "answer": "B",
+    "explanation": "FSx for Windows File ServerはSMBプロトコルで完全マネージドな共有を提供します。",
+    "updatedAt": 1714972800000
+  },
+  {
+    "id": "q244",
+    "lang": "jp",
+    "domain": "security",
+    "stem": "CloudFrontでオリジンへの直接アクセスを防ぐ機能はどれですか？",
+    "choices": {
+      "A": "オリジンアクセスコントロールまたはOAI",
+      "B": "レスポンスヘッダー追加",
+      "C": "キャッシュポリシー",
+      "D": "レスポンス圧縮"
+    },
+    "answer": "A",
+    "explanation": "OACやOAIを使うとS3オリジンへの直接アクセスを制御できます。",
+    "updatedAt": 1714972800000
+  },
+  {
+    "id": "q245",
+    "lang": "jp",
+    "domain": "cloud_technology",
+    "stem": "Application Load Balancerでリクエストパスに応じた振り分けを行う機能はどれですか？",
+    "choices": {
+      "A": "ホストベースルーティング",
+      "B": "パスベースルーティング",
+      "C": "重み付けルーティング",
+      "D": "IPハッシュルーティング"
+    },
+    "answer": "B",
+    "explanation": "ALBはパス条件を使ってターゲットグループを切り替えられます。",
+    "updatedAt": 1714972800000
+  },
+  {
+    "id": "q246",
+    "lang": "jp",
+    "domain": "cloud_concepts",
+    "stem": "イベント駆動アーキテクチャを実現するサービスとして正しいものはどれですか？",
+    "choices": {
+      "A": "Amazon EventBridge",
+      "B": "Amazon S3",
+      "C": "AWS IAM",
+      "D": "Amazon QuickSight"
+    },
+    "answer": "A",
+    "explanation": "EventBridgeはイベントをルールに基づき各サービスへルーティングします。",
+    "updatedAt": 1714972800000
+  },
+  {
+    "id": "q247",
+    "lang": "jp",
+    "domain": "security",
+    "stem": "IAMポリシーでリソースへのアクセスを制御する際に利用できる条件要素はどれですか？",
+    "choices": {
+      "A": "Action",
+      "B": "Effect",
+      "C": "Condition",
+      "D": "Principal"
+    },
+    "answer": "C",
+    "explanation": "Condition要素を使うとIP制限など細かな制御が可能です。",
+    "updatedAt": 1714972800000
+  },
+  {
+    "id": "q248",
+    "lang": "jp",
+    "domain": "technology",
+    "stem": "EC2インスタンスを高密度配置するために使用するプレースメントグループのタイプはどれですか？",
+    "choices": {
+      "A": "Cluster",
+      "B": "Partition",
+      "C": "Spread",
+      "D": "Regional"
+    },
+    "answer": "A",
+    "explanation": "Clusterタイプは同一ラック内に配置し低レイテンシを実現します。",
+    "updatedAt": 1714972800000
+  },
+  {
+    "id": "q249",
+    "lang": "jp",
+    "domain": "technology",
+    "stem": "RDSの定期メンテナンス作業が実行される時間帯を指定する設定はどれですか？",
+    "choices": {
+      "A": "メンテナンスウィンドウ",
+      "B": "イベントサブスクリプション",
+      "C": "パラメータグループ",
+      "D": "オプショングループ"
+    },
+    "answer": "A",
+    "explanation": "メンテナンスウィンドウで自動パッチ適用の時間帯を指定できます。",
+    "updatedAt": 1714972800000
+  },
+  {
+    "id": "q250",
+    "lang": "jp",
+    "domain": "billing_pricing",
+    "stem": "Reserved Instances購入時に最も割引率が高くなる支払いオプションはどれですか？",
+    "choices": {
+      "A": "前払いなし",
+      "B": "一部前払い",
+      "C": "全額前払い",
+      "D": "従量課金"
+    },
+    "answer": "C",
+    "explanation": "RIは全額前払い・3年契約が最大割引となります。",
+    "updatedAt": 1714972800000
+  }
+]
