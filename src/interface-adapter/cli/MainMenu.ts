@@ -92,6 +92,8 @@ export class MainMenu {
    * 本番形式の模擬試験を開始
    */
   private async startFullExam(): Promise<void> {
+    const examType = await this.selectExamType();
+    if (!examType) return;
     // 言語選択
     const langChoice = await this.selectLanguage();
     if (!langChoice) return;
@@ -99,7 +101,8 @@ export class MainMenu {
     // 試験セッションを作成
     const session = await this.startExam.execute({
       mode: ExamMode.FULL_EXAM,
-      lang: langChoice
+      lang: langChoice,
+      examType
     });
 
     // 試験を実行
@@ -110,12 +113,14 @@ export class MainMenu {
    * 練習問題を開始
    */
   private async startPracticeExam(): Promise<void> {
+    const examType = await this.selectExamType();
+    if (!examType) return;
     // 言語選択
     const langChoice = await this.selectLanguage();
     if (!langChoice) return;
 
     // ドメイン選択
-    const domainChoice = await this.selectDomain();
+    const domainChoice = await this.selectDomain(examType);
     if (!domainChoice) return;
 
     // 問題数選択
@@ -127,7 +132,8 @@ export class MainMenu {
       mode: ExamMode.PRACTICE,
       domain: domainChoice === 'all' ? undefined : domainChoice as Domain,
       count: countChoice,
-      lang: langChoice
+      lang: langChoice,
+      examType
     });
 
     // 試験を実行
@@ -163,6 +169,24 @@ export class MainMenu {
   }
 
   /**
+   * 試験タイプを選択
+   */
+  private async selectExamType(): Promise<string | null> {
+    const response = await prompts({
+      type: 'select',
+      name: 'value',
+      message: '試験を選択してください',
+      choices: [
+        { title: 'クラウドプラクティショナー', value: 'cp' },
+        { title: 'SAA', value: 'saa' },
+        { title: '戻る', value: 'back' }
+      ]
+    });
+
+    return response.value === 'back' ? null : response.value;
+  }
+
+  /**
    * 言語を選択
    * @returns 選択された言語コード、またはキャンセル時はnull
    */
@@ -174,19 +198,28 @@ export class MainMenu {
    * ドメインを選択
    * @returns 選択されたドメイン、またはキャンセル時はnull
    */
-  private async selectDomain(): Promise<string | null> {
+  private async selectDomain(examType: string): Promise<string | null> {
+    const choices = examType === 'saa' ? [
+      { title: 'すべて', value: 'all' },
+      { title: 'セキュアアーキテクチャ', value: Domain.SAA_SECURE_ARCHITECTURES },
+      { title: 'レジリエントアーキテクチャ', value: Domain.SAA_RESILIENT_ARCHITECTURES },
+      { title: '高パフォーマンスアーキテクチャ', value: Domain.SAA_HIGH_PERFORMANCE_ARCHITECTURES },
+      { title: 'コスト最適化アーキテクチャ', value: Domain.SAA_COST_OPTIMIZED_ARCHITECTURES },
+      { title: '戻る', value: 'back' }
+    ] : [
+      { title: 'すべて', value: 'all' },
+      { title: 'クラウドコンセプト', value: Domain.CLOUD_CONCEPTS },
+      { title: 'セキュリティ', value: Domain.SECURITY },
+      { title: 'テクノロジー', value: Domain.TECHNOLOGY },
+      { title: '請求と料金', value: Domain.BILLING },
+      { title: '戻る', value: 'back' }
+    ];
+
     const response = await prompts({
       type: 'select',
       name: 'value',
       message: 'カテゴリを選択してください',
-      choices: [
-        { title: 'すべて', value: 'all' },
-        { title: 'クラウドコンセプト', value: Domain.CLOUD_CONCEPTS },
-        { title: 'セキュリティ', value: Domain.SECURITY },
-        { title: 'テクノロジー', value: Domain.TECHNOLOGY },
-        { title: '請求と料金', value: Domain.BILLING },
-        { title: '戻る', value: 'back' }
-      ]
+      choices
     });
 
     return response.value === 'back' ? null : response.value;

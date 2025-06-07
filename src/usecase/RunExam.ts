@@ -137,6 +137,7 @@ export class RunExam {
   private async saveResult(session: ExamSession, score: Score, duration: number): Promise<void> {
     const result: ExamResult = {
       timestamp: new Date(),
+      examType: session.examType,
       mode: session.mode,
       score: score.percent(),
       correct: score.correct,
