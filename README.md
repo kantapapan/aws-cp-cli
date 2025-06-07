@@ -69,7 +69,7 @@ npm run build
 npm start
 
 # または直接実行ファイルを使用
-node dist/index.js
+node dist/infra/cli.js
 ```
 
 グローバルインストールする場合は以下の手順で行います：
